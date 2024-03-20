@@ -32,7 +32,7 @@ class SetGoalsActivity : AppCompatActivity() {
             val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
 
-            // Optionally, navigate back to the ViewGoalsActivity or show a confirmation message
+            // Optionally, navigate back to the ViewGoalsActivity or show a confirmation message fsdafa
         }
     }
 }
