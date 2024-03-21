@@ -24,5 +24,7 @@
         <activity android:name=".HomeActivity" />
         <activity android:name=".ViewGoalsActivity" />
         <activity android:name=".SetGoalsActivity" />
+        <activity android:name=".ViewNotesActivity" />
+        <activity android:name=".WriteNotesActivity" />
     </application>
 </manifest>

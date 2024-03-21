@@ -37,5 +37,18 @@
         android:layout_height="wrap_content"
         android:text="Set Goals"
         android:layout_marginTop="16dp" />
+    <Button
+        android:id="@+id/buttonViewNotes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View Notes"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/buttonWriteNotes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Write Notes"
+        android:layout_marginTop="16dp" />
 
 </LinearLayout>
