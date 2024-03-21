@@ -1,0 +1,14 @@
+<resources>
+    <color name="primary_color">#A7C7E7</color> <!-- Change primary color -->
+    <color name="primary_dark_color">#6082B6</color> <!-- Change primary dark color -->
+    <color name="accent_color">#ADD8E6</color> <!-- Change accent color -->
+    <color name="background_color">#FFFFFF</color> <!-- Change background color -->
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here -->
+        <item name="colorPrimary">@color/primary_color</item> <!-- Use primary color -->
+        <item name="colorPrimaryDark">@color/primary_dark_color</item> <!-- Use primary dark color -->
+        <item name="colorAccent">@color/accent_color</item> <!-- Use accent color -->
+        <item name="android:windowBackground">@color/background_color</item> <!-- Use background color -->
+    </style>
+</resources>
