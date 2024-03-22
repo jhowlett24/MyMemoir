@@ -13,18 +13,20 @@
         android:theme="@style/AppTheme"
         tools:targetApi="31">
         <activity
-            android:name=".GetStartedActivity"
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".RegistrationActivity" />
+        <activity android:name=".GetStartedActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".ViewGoalsActivity" />
         <activity android:name=".SetGoalsActivity" />
         <activity android:name=".ViewNotesActivity" />
         <activity android:name=".WriteNotesActivity" />
     </application>
+
 </manifest>
