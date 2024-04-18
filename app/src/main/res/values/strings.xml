@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">MyMemoir1</string>
+    <string-array name="time_durations">
+        <item>1 minute</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+        <item>4 hours</item>
+        <item>24 hours</item>
+        <item>one month</item>
+        <item>one year</item>
+    </string-array>
 </resources>

@@ -39,7 +39,8 @@ android {
 dependencies {
 
     implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.firebase:firebase-firestore:24.11.1") // Add this line for Firestore
+    implementation("com.google.firebase:firebase-firestore:24.11.1")
+    implementation("com.google.firebase:firebase-firestore-ktx:24.11.1") // Add this line for Firestore
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     implementation("androidx.core:core-ktx:1.13.0")
     implementation("com.google.android.material:material:1.11.0")

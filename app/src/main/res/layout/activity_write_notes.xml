@@ -22,6 +22,14 @@
             android:hint="Note Content"
             android:inputType="textMultiLine" />
 
+        <Spinner
+            android:id="@+id/spinnerTimeDuration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/time_durations"
+            android:layout_marginTop="16dp"/>
+
+
         <Button
             android:id="@+id/buttonSaveNote"
             android:layout_width="match_parent"
