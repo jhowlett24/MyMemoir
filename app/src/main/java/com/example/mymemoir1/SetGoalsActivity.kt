@@ -4,18 +4,18 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-//import com.google.firebase.firestore.FirebaseDatabase
+import com.google.firebase.firestore.FirebaseFirestore
 
 
 class SetGoalsActivity : AppCompatActivity() {
     //added
-    //private lateinit var firestore : FirebaseFirestore
+    private lateinit var firestore : FirebaseFirestore
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_set_goals)
 
         //added line
-       // firestore = FirebaseFireStore.getInstance();
+        firestore = FirebaseFirestore.getInstance()
 
         val stepsOptions = arrayOf("20,000 steps", "40,000 steps", "60,000 steps", "80,000 steps",
             "100,000 steps", "250,000 steps", "500,000 steps", "1,000,000 steps")
@@ -33,10 +33,10 @@ class SetGoalsActivity : AppCompatActivity() {
             val selectedStepGoal = spinnerGoalSteps.selectedItem.toString()
 
             //added line
-            //val goalsCollection = firestore.collection("goals")
+            val goalsCollection = firestore.collection("goals")
 
             //added lines
-            /*
+
             val newGoalDocument = goalsCollection.document()
             val goalData = hashMapOf(
                 "title" to goalTitle,
@@ -53,17 +53,17 @@ class SetGoalsActivity : AppCompatActivity() {
                     // Handle errors
                     Toast.makeText(this, "Error saving goal: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
-            */
 
 
-            val sharedPreferences = getSharedPreferences("GoalsPrefs", MODE_PRIVATE)
+
+         /*   val sharedPreferences = getSharedPreferences("GoalsPrefs", MODE_PRIVATE)
             val editor = sharedPreferences.edit()
             editor.putString(goalTitle, selectedStepGoal)
             editor.apply()
 
             val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
-
+*/
             // Optionally, navigate back to the ViewGoalsActivity or show a confirmation message
         }
     }

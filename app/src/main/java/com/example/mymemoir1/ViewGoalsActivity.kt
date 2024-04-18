@@ -7,22 +7,55 @@ import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.firestore.FirebaseFirestore
+
 
 class ViewGoalsActivity : AppCompatActivity() {
     private lateinit var adapter: ArrayAdapter<String>
-    private lateinit var goalsList: MutableList<String>
-    private lateinit var sharedPreferences: SharedPreferences
+    //private lateinit var goalsList: MutableList<String>
+    //private lateinit var sharedPreferences: SharedPreferences
+    //added line
+    private lateinit var listViewGoals: ListView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view_goals)
 
-        val listViewGoals: ListView = findViewById(R.id.listViewGoals)
-        sharedPreferences = getSharedPreferences("GoalsPrefs", MODE_PRIVATE)
-        loadGoals()
+        //val listViewGoals: ListView = findViewById(R.id.listViewGoals)
+        listViewGoals = findViewById(R.id.listViewGoals)
+        adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1)
+
+        //sharedPreferences = getSharedPreferences("GoalsPrefs", MODE_PRIVATE)
+        //loadGoals()
 
         listViewGoals.adapter = adapter
+        fetchGoalsFromFirestore()
+    }
+    //added new function
+    private fun fetchGoalsFromFirestore() {
+        val firestore = FirebaseFirestore.getInstance()
+        val goalsCollection = firestore.collection("goals")
 
+        goalsCollection.get()
+            .addOnSuccessListener { documents ->
+                val goalsList = mutableListOf<String>()
+                for (document in documents) {
+                    val title = document.getString("title") ?: ""
+                    val description = document.getString("description") ?: ""
+                    val stepsGoal = document.getString("stepsGoal") ?: ""
+                    val goalString = "$title: $description - $stepsGoal"
+                    goalsList.add(goalString)
+                }
+                adapter.addAll(goalsList)
+            }
+            .addOnFailureListener { e ->
+                // Handle failures
+                e.printStackTrace()
+            }
+    }
+
+    /*
         listViewGoals.onItemLongClickListener = AdapterView.OnItemLongClickListener { _, _, position, _ ->
             val goal = goalsList[position]
             val goalKey = goal.substringBefore(":") // Assuming goal is stored as "Title: Step Count"
@@ -60,4 +93,5 @@ class ViewGoalsActivity : AppCompatActivity() {
 
         Toast.makeText(this, "Goal deleted", Toast.LENGTH_SHORT).show()
     }
+*/
 }
