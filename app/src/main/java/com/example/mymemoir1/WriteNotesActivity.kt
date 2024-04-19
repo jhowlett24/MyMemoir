@@ -1,5 +1,6 @@
 package com.example.mymemoir1
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
@@ -39,6 +40,8 @@ class WriteNotesActivity : AppCompatActivity() {
                 saveNoteToFirestore(noteTitle, noteContent, selectedTimeDuration)
                 editTextNoteTitle.text.clear()
                 editTextNoteContent.text.clear()
+                val intent = Intent(this, ViewNotesActivity::class.java)
+                startActivity(intent)
             } else {
                 Toast.makeText(this, "Please fill in both fields.", Toast.LENGTH_SHORT).show()
             }

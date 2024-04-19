@@ -9,25 +9,33 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:text="Write a note to your future self:"
+            android:textSize="20sp" />
+
         <EditText
             android:id="@+id/editTextNoteTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Note Title" />
+            android:hint="Enter a name for your note" />
 
         <EditText
             android:id="@+id/editTextNoteContent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Note Content"
+            android:hint="Type away here! Could be anything from how your current day has been to where you want to see yourself in a year!"
             android:inputType="textMultiLine" />
 
         <Spinner
             android:id="@+id/spinnerTimeDuration"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:entries="@array/time_durations"
-            android:layout_marginTop="16dp"/>
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:entries="@array/time_durations" />
 
 
         <Button
