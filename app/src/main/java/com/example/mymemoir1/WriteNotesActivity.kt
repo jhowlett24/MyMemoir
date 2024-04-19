@@ -20,20 +20,16 @@ class WriteNotesActivity : AppCompatActivity() {
         // Initialize FirebaseFirestore
         firestore = FirebaseFirestore.getInstance()
 
-        // Initialize views
         val editTextNoteTitle: EditText = findViewById(R.id.editTextNoteTitle)
         val editTextNoteContent: EditText = findViewById(R.id.editTextNoteContent)
         val buttonSaveNote: Button = findViewById(R.id.buttonSaveNote)
         spinnerTimeDuration = findViewById(R.id.spinnerTimeDuration)
 
         // Setup spinner
-        val timeDurationOptions = arrayOf("5 Seconds", "1 Hour", "6 Hours",
-            "1 Day", "5 Days", "1 Week", "2 Weeks", "1 Month", "6 Months", "1 Year", )
-        val spinnerAdapter = ArrayAdapter(this,
-            android.R.layout.simple_spinner_dropdown_item, timeDurationOptions)
+        val timeDurationOptions = arrayOf("5 Seconds", "1 Hour", "6 Hours", "1 Day", "5 Days", "1 Week", "2 Weeks", "1 Month", "6 Months", "1 Year")
+        val spinnerAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, timeDurationOptions)
         spinnerTimeDuration.adapter = spinnerAdapter
 
-        // Save note button click listener
         buttonSaveNote.setOnClickListener {
             val noteTitle = editTextNoteTitle.text.toString().trim()
             val noteContent = editTextNoteContent.text.toString().trim()
@@ -41,24 +37,36 @@ class WriteNotesActivity : AppCompatActivity() {
 
             if (noteTitle.isNotEmpty() && noteContent.isNotEmpty()) {
                 saveNoteToFirestore(noteTitle, noteContent, selectedTimeDuration)
-
-                // Clear the fields
                 editTextNoteTitle.text.clear()
                 editTextNoteContent.text.clear()
             } else {
-                // Show error message
-                Toast.makeText(this, "Please fill in both fields.",
-                    Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Please fill in both fields.", Toast.LENGTH_SHORT).show()
             }
         }
     }
 
     private fun saveNoteToFirestore(noteTitle: String, noteContent: String, timeDuration: String) {
         val notesCollection = firestore.collection("notes")
+        val currentTime = System.currentTimeMillis()
+        val durationMillis = when (timeDuration) {
+            "5 Seconds" -> 5000L
+            "1 Hour" -> 3600000L
+            "6 Hours" -> 21600000L
+            "1 Day" -> 86400000L
+            "5 Days" -> 432000000L
+            "1 Week" -> 604800000L
+            "2 Weeks" -> 1209600000L
+            "1 Month" -> 2592000000L
+            "6 Months" -> 15552000000L
+            "1 Year" -> 31104000000L
+            else -> 0L
+        }
+        val unlockTime = currentTime + durationMillis
+
         val noteData = hashMapOf(
             "title" to noteTitle,
             "content" to noteContent,
-            "timeDuration" to timeDuration
+            "unlockTime" to unlockTime
         )
 
         notesCollection.add(noteData)
@@ -69,4 +77,5 @@ class WriteNotesActivity : AppCompatActivity() {
                 Toast.makeText(this, "Error saving note: ${e.message}", Toast.LENGTH_SHORT).show()
             }
     }
+
 }

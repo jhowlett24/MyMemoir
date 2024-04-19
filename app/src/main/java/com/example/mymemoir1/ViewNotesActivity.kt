@@ -22,6 +22,7 @@ class ViewNotesActivity : AppCompatActivity() {
 
     private fun fetchNotesFromFirestore(listViewNotes: ListView) {
         val notesCollection = firestore.collection("notes")
+        val currentTime = System.currentTimeMillis()
 
         notesCollection.get()
             .addOnSuccessListener { documents ->
@@ -29,9 +30,14 @@ class ViewNotesActivity : AppCompatActivity() {
                 for (document in documents) {
                     val title = document.getString("title") ?: ""
                     val content = document.getString("content") ?: ""
-                    val timeDuration = document.getString("timeDuration") ?: ""
-                    val noteString = "$title: $content ($timeDuration)"
-                    notesList.add(noteString)
+                    val unlockTime = document.getLong("unlockTime") ?: 0
+                    if (currentTime >= unlockTime) {
+                        notesList.add("$title: \n\n$content")
+                    } else {
+                        val timeLeft = unlockTime - currentTime
+                        val displayTimeLeft = formatTimeLeft(timeLeft)
+                        notesList.add("$title \n\nCan't read for: $displayTimeLeft")
+                    }
                 }
                 val adapter = ArrayAdapter(this@ViewNotesActivity, android.R.layout.simple_list_item_1, notesList)
                 listViewNotes.adapter = adapter
@@ -39,5 +45,13 @@ class ViewNotesActivity : AppCompatActivity() {
             .addOnFailureListener { e ->
                 Toast.makeText(this@ViewNotesActivity, "Error fetching notes: ${e.message}", Toast.LENGTH_SHORT).show()
             }
+    }
+
+    private fun formatTimeLeft(millis: Long): String {
+        val seconds = (millis / 1000) % 60
+        val minutes = (millis / (1000 * 60) % 60)
+        val hours = (millis / (1000 * 60 * 60) % 24)
+        val days = millis / (1000 * 60 * 60 * 24)
+        return String.format("%d days, %02d:%02d:%02d", days, hours, minutes, seconds)
     }
 }
