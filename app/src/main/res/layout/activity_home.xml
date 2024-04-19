@@ -7,24 +7,26 @@
     android:gravity="center"
     android:padding="16dp">
 
-    <TextView
-        android:id="@+id/textViewTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="MyMemoir"
-        android:textSize="24sp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="120dp" />
+    <ImageView
+        android:id="@+id/imageViewHome"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="30dp"
+        android:src="@drawable/logo" />
 
     <TextView
         android:id="@+id/textViewSubtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Set and view goals like never before!"
         android:layout_below="@+id/textViewTitle"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="30dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Set and view goals like never before!"
+        android:textSize="16sp"
+        android:typeface="normal" />
 
     <Button
         android:id="@+id/buttonViewGoals"
