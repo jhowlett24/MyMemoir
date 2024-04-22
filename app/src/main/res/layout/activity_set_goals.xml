@@ -29,10 +29,12 @@
 
         <Button
             android:id="@+id/buttonSaveGoal"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/button_background"
             android:text="Save Goal"
-            android:layout_marginTop="16dp" />
+            android:textColor="#ffffff"/>
 
     </LinearLayout>
 </ScrollView>

@@ -3,19 +3,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:gravity="center_horizontal">
+
+    <Button
+        android:id="@+id/buttonManualEntry"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_background"
+        android:text="Manual Step Entry"
+        android:textColor="#FFFFFF"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
 
     <ListView
         android:id="@+id/listViewGoals"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-    <Button
-        android:id="@+id/buttonManualEntry"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Manual Entry"
-        android:visibility="gone"/>
 
 </LinearLayout>
 

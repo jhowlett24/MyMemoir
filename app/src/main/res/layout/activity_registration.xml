@@ -49,14 +49,20 @@
 
         <Button
             android:id="@+id/buttonRegister"
+            android:layout_marginTop="10dp"
             android:layout_width="163dp"
             android:layout_height="wrap_content"
-            android:text="Register" />
+            android:background="@drawable/button_background"
+            android:text="Register"
+            android:textColor="#ffffff"/>
 
         <Button
             android:id="@+id/buttonRegister2Login"
+            android:layout_marginTop="10dp"
             android:layout_width="163dp"
             android:layout_height="wrap_content"
-            android:text="Login" />
+            android:background="@drawable/button_background"
+            android:text="Login"
+            android:textColor="#ffffff"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

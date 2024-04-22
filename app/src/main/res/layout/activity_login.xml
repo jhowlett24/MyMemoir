@@ -41,21 +41,31 @@
 
         <Button
             android:id="@+id/buttonLogin"
+            android:layout_marginTop="5dp"
             android:layout_width="163dp"
             android:layout_height="wrap_content"
-            android:text="Login" />
+            android:background="@drawable/button_background"
+            android:text="Login"
+            android:textColor="#ffffff"
+            />
 
         <Button
             android:id="@+id/buttonLogin2Register"
+            android:layout_marginTop="10dp"
             android:layout_width="163dp"
             android:layout_height="wrap_content"
-            android:text="Register" />
+            android:background="@drawable/button_background"
+            android:text="Register"
+            android:textColor="#ffffff"/>
 
         <Button
             android:id="@+id/buttonGuest"
+            android:layout_marginTop="10dp"
             android:layout_width="162dp"
             android:layout_height="wrap_content"
-            android:text="Guest" />
+            android:background="@drawable/button_background"
+            android:text="Guest"
+            android:textColor="#ffffff"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

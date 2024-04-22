@@ -12,7 +12,7 @@
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_gravity="center"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="10dp"
         android:src="@drawable/logo" />
 
     <TextView
@@ -21,37 +21,45 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textViewTitle"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="2dp"
         android:layout_marginBottom="30dp"
         android:fontFamily="sans-serif-medium"
         android:text="Set and view goals like never before!"
-        android:textSize="16sp"
+        android:textSize="20dp"
         android:typeface="normal" />
 
     <Button
         android:id="@+id/buttonViewGoals"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="View Goals" />
+        android:background="@drawable/button_background"
+        android:text="My Goals"
+        android:textColor="#ffffff"/>
 
     <Button
         android:id="@+id/buttonSetGoals"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/button_background"
         android:text="Set Goals"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"
+        android:textColor="#ffffff"/>
     <Button
         android:id="@+id/buttonViewNotes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="View Notes"
-        android:layout_marginTop="16dp" />
+        android:background="@drawable/button_background"
+        android:text="My Notes"
+        android:layout_marginTop="16dp"
+        android:textColor="#ffffff"/>
 
     <Button
         android:id="@+id/buttonWriteNotes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/button_background"
         android:text="Write Notes"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"
+        android:textColor="#ffffff"/>
 
 </LinearLayout>

@@ -2,7 +2,7 @@
     <color name="primary_color">#A7C7E7</color> <!-- Change primary color -->
     <color name="primary_dark_color">#6082B6</color> <!-- Change primary dark color -->
     <color name="accent_color">#ADD8E6</color> <!-- Change accent color -->
-    <color name="background_color">#FFFFFF</color> <!-- Change background color -->
+    <color name="background_color">#fffff2</color> <!-- Change background color -->
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here -->
