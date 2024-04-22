@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="Test Registration"
+            android:text="Registration"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <EditText
