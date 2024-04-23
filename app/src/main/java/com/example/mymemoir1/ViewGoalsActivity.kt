@@ -68,27 +68,29 @@ class ViewGoalsActivity : AppCompatActivity(), SensorEventListener {
     }
 
     private fun fetchGoals() {
-        firestore.collection("goals").get()
-            .addOnSuccessListener { documents ->
-                val goalsList = documents.mapNotNull { document ->
+        firestore.collection("goals")
+            .addSnapshotListener { snapshots, e ->
+                if (e != null) {
+                    Toast.makeText(this, "Listen failed: ${e.message}", Toast.LENGTH_LONG).show()
+                    return@addSnapshotListener
+                }
+
+                val goalsList = snapshots?.mapNotNull { document ->
                     val title = document.getString("title") ?: "No Title"
                     val description = document.getString("description") ?: "No Description"
                     val stepsGoal = document.data["stepsGoal"]?.toString()?.toLongOrNull() ?: 0L
                     val stepsCompleted = document.data["stepsCompleted"]?.toString()?.toLongOrNull() ?: 0L
 
-                    // Conditionally display the description based on the steps goal
                     if (stepsCompleted >= stepsGoal) {
                         "\nGoal of $stepsGoal completed!\n$title: \n\n$description\n"
                     } else {
                         val stepsLeft = stepsGoal - stepsCompleted
                         "\n$title: \n\nGoal: $stepsGoal steps\nCompleted: $stepsCompleted steps\nSteps left: $stepsLeft\n"
                     }
-                }
+                } ?: listOf()
+
                 val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, goalsList)
                 listViewGoals.adapter = adapter
-            }
-            .addOnFailureListener { e ->
-                Toast.makeText(this, "Error fetching goals: ${e.message}", Toast.LENGTH_LONG).show()
             }
     }
 
