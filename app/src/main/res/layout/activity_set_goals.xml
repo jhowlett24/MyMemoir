@@ -19,7 +19,7 @@
             android:id="@+id/editTextGoalDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Goal Description"
+            android:hint="Write here!"
             android:inputType="textMultiLine" />
 
         <Spinner
@@ -35,6 +35,21 @@
             android:background="@drawable/button_background"
             android:text="Save Goal"
             android:textColor="#ffffff"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Write about anything from:"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="\n How are you feeling before this goal is completed \n \n Motivation behind the goal \n \nYour manifestation of the goal \n \nThe first thing you are gonna do once this goal is finished\n \n Potential obstacles and your plan to overcome them\n\n How do you plan on addressing small victories along the way?"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
     </LinearLayout>
 </ScrollView>

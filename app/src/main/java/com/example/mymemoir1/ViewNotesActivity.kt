@@ -67,11 +67,11 @@ class ViewNotesActivity : AppCompatActivity() {
             val content = document["content"] as? String ?: ""
             val unlockTime = document["unlockTime"] as? Long ?: 0
             if (currentTime >= unlockTime) {
-                notesList.add("$title: $content")
+                notesList.add("\n$title: \n\n$content\n")
             } else {
                 val timeLeft = unlockTime - currentTime
                 val displayTimeLeft = formatTimeLeft(timeLeft)
-                notesList.add("$title - Time until note is accessible: $displayTimeLeft")
+                notesList.add("\n$title:\n\n$displayTimeLeft\n")
             }
         }
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, notesList)
